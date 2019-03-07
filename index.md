@@ -1,37 +1,33 @@
-## Welcome to GitHub Pages
+### 个人信息
+#### 姓名：陆逢阳
+#### 学历：硕士研究生
+#### 地址：洛阳市西工区
+#### 邮箱：lufengyang07@163.com
 
-You can use the [editor on GitHub](https://github.com/FengyangLu2018/fengyanglu2018.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+### 最新动态
+- 基于Django的网站开发
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### 兴趣爱好
+- 篮球、游泳、健身
+- 旅行
 
-### Markdown
+### 研究领域
+- 伺服系统
+- 测控仪器
+- 物联网应用
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### 项目经历
+#### 伺服系统传动参数计算工具  
+- 2016.7  
+- 基于labwindows框架  C语言开发  
+- 代码量1000行  
+#### 伺服系统测试系统开发  
+- 2017.12~2018.2  
+- 基于labwindows框架  C语言开发  
+- 代码量10000行
+#### 伺服系统控制参数自动整定设备  
+- 2018.10~2018.11  
+- 基于labwindows框架  C语言开发  
+- 代码量8000行  
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/FengyangLu2018/fengyanglu2018.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
