@@ -6,6 +6,7 @@
       <p><b>中国空空导弹研究院</b></p>
       <p><b>邮箱：lufengyang07@163.com</b></p>
       <p><b>地址：洛阳市西工区零一四中心</b></p>
+      <p><a href="/index-en.html">英文版</a></p>
     </td>
     <td width="25%">
       <img src="/zhengjianzhao.jpg" width="100%">      
