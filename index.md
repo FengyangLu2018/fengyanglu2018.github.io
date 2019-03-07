@@ -1,8 +1,17 @@
-### 个人信息
-#### 姓名：陆逢阳
-#### 学历：硕士研究生
-#### 地址：洛阳市西工区
-#### 邮箱：lufengyang07@163.com
+<table border="0">
+  <tr>
+    <td width="75%">
+      <h1>陆逢阳</h1>
+      <p><b>硕士研究生</b></p>
+      <p><b>中国空空导弹研究院</b></p>
+      <p><b>邮箱：lufengyang07@163.com</b></p>
+      <p><b>地址：洛阳市西工区零一四中心</b></p>
+    </td>
+    <td width="25%">
+      <img src="/zhengjianzhao.jpg" width="100%">      
+    </td>
+  </tr>
+</table>
 
 ### 最新动态
 - 基于Django的网站开发
