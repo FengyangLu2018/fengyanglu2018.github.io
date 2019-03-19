@@ -24,17 +24,18 @@
 <section>
   <div class="container">
     <ul class="docs-nav">
-      <li><strong>Getting Started</strong></li>
-      <li><a href="#welcome" class="cc-active">Welcome</a></li>
-      <li><a href="#benefits" class="cc-active">Benefits</a></li>
-      <li><a href="#features" class="cc-active">Features</a></li>
-      <li><a href="#license" class="cc-active">License</a></li>
+      <li><strong>开发第一步</strong></li>
+      <li><a href="#envnbuild" class="cc-active">开发环境搭建</a></li>
+      <li><a href="#benefits" class="cc-active">python语言基础</a></li>
+      <li><a href="#features" class="cc-active">git基础</a></li>    
+      <li><a href="#features" class="cc-active">新建一个工程</a></li>
+      <li><a href="#license" class="cc-active">小结：建站的流程</a></li>
       <li class="separator"></li>
-      <li><strong>Customization</strong></li>
-      <li><a href="#view_type" class="cc-active">View Type</a></li>
-      <li><a href="#animation_style" class="cc-active">Animation Styles</a></li>
-      <li><a href="#bars_text" class="cc-active">Bars Text</a></li>
-      <li><a href="#vote_counter" class="cc-active">Vote Counter</a></li>
+      <li><strong>博客网站实例</strong></li>
+      <li><a href="#view_type" class="cc-active">新建一个app</a></li>
+      <li><a href="#animation_style" class="cc-active">数据管理与数据库</a></li>
+      <li><a href="#bars_text" class="cc-active">用户验证登录功能</a></li>
+      <li><a href="#vote_counter" class="cc-active">发送邮件功能</a></li>
       <li><a href="#rating_icons" class="cc-active">Rating Icons</a></li>
       <li><a href="#rating_titles" class="cc-active">Rating Titles</a></li>
       <li><a href="#bar_colors" class="cc-active">Bar Colors</a></li>
@@ -42,15 +43,14 @@
 	<li style='color:black;'><strong><a href='menupage.html' style='color:black;'>返回学习笔记首页</a></strong></li>
     </ul>
     <div class="docs-content">
-      <h2> Getting Started</h2>
-      <h3 id="welcome"> Welcome</h3>
-      <p> Are you listening to your customers?</p>
+      <h2>开发第一步</h2>
+      <h3 id="envbuild">开发环境搭建</h3>
+      <p> 工欲善其事必先利其器，因此第一步需要搭建开发环境。</p>
       
-      <p> As they say: You cannot improve what you cannot measure; but the paradox is you
-        cannot measure everything – happiness, hatred, anger… but you can measure customer
-        satisfaction. Yes, you can measure customer satisfaction by analyzing likes and
-        dislikes of your customers. You can gauge popularity of your website or products.
-        You can also:</p>
+      <p> 因为网站的主流架构是LAMP，即Linux+Apache+Mysql+PHP/Python/Perl，因此我们第一步需要在自己的电脑中安装一个虚拟机以运行Linux操作系统。
+	  本笔记虚拟机选择VMware，操作系统选择Ubuntu14.04.4LTS 64-bit。读者可自行到其官网进行下载。虚拟机的安装过程网上有很多帖子介绍，在此不再详述。</p>
+      <p> 虚拟机安装完成之后，我们在虚拟机中建立django的开发环境。首先切换到root账号，然后执行以下两条指令，用于更新安装好的系统信息，获取所有需要更新和升级的项目。</p>
+      <p> </p>
       <ul>
         <li>See how many visitors like the new design of your website or logo</li>
         <li>Analyze what your readers want to see on your blog</li>
