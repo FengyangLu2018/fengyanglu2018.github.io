@@ -6,7 +6,8 @@
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Free Documentation HTML Template</title>
+<link rel="icon" href="../../static/imgs/mylogo.ico">
+<title>django学习笔记</title>
 <link rel="alternate" type="application/rss+xml" title="" href="feed/index.html">
 <link href="http://fonts.googleapis.com/css?family=Raleway:700,300" rel="stylesheet"
         type="text/css">
@@ -50,7 +51,10 @@
       <p> 因为网站的主流架构是LAMP，即Linux+Apache+Mysql+PHP/Python/Perl，因此我们第一步需要在自己的电脑中安装一个虚拟机以运行Linux操作系统。
 	  本笔记虚拟机选择VMware，操作系统选择Ubuntu14.04.4LTS 64-bit。读者可自行到其官网进行下载。虚拟机的安装过程网上有很多帖子介绍，在此不再详述。</p>
       <p> 虚拟机安装完成之后，我们在虚拟机中建立django的开发环境。首先切换到root账号，然后执行以下两条指令，用于更新安装好的系统信息，获取所有需要更新和升级的项目。</p>
-      <p> </p>
+      <pre class="prettyprint">
+      	   $ sudo apt-get update
+	   $ sudo apt-get -y upgrade
+      </pre>
       <ul>
         <li>See how many visitors like the new design of your website or logo</li>
         <li>Analyze what your readers want to see on your blog</li>
