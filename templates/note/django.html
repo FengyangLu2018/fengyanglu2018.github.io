@@ -24,7 +24,7 @@
 		<div class="wrapper">
 			<section>
 				<div class="container">
-					<ul class="docs-nav">
+					<ul class="docs-nav" style='position:fixed;'>
 						<li><strong>开发第一步</strong></li>
 						<li><a href="#envbuild" class="cc-active">开发环境搭建</a></li>
 						<li><a href="#pybasis" class="cc-active">python语言基础</a></li>
@@ -53,7 +53,8 @@
 						64-bit。读者可自行到其官网进行下载。虚拟机的安装过程网上有很多帖子介绍，在此不再详述。</p>
 						<p> 虚拟机安装完成之后，我们在虚拟机中建立django的开发环境。首先切换到root账号，然后执行以下两
 						条指令，用于更新安装好的系统信息，获取所有需要更新和升级的项目。</p>
-						<pre class="prettyprint">$ sudo apt-get update
+						<pre class="prettyprint">
+						$ sudo apt-get update
 						$ sudo apt-get -y upgrade</pre>
 						<p>然后我们继续用apt-get来安装pip，pip是python语言中重要的套件管理工具。</p>
 						<pre class="prettyprint">$ sudo apt-get -y install python-pip</pre>  
@@ -61,7 +62,8 @@
 						创造一个虚拟机环境，使同一个项目可以方便的在多台计算机上进行开发。</p>
 						<pre class="prettyprint">$ sudo pip install virtualenv</pre>
 						<p>之后，我们需要配置SSH以及FTP，执行以下命令。</p>
-						<pre class="prettyprint">$ sudo apt-get -y install openssh-server
+						<pre class="prettyprint">
+						$ sudo apt-get -y install openssh-server
 						$ sudo apt-get -y install vsftpd</pre>
 						<p>配置完SSH服务器之后，我们可以使用putty这个软件远程连接到虚拟机，在win系统中用命令行的形式对
 						虚拟机进行操作。配置完FTP服务器后，我们可以使用notepad++软件在win系统中对虚拟机中文件进行编辑。
