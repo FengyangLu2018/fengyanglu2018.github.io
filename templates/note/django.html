@@ -60,29 +60,36 @@
 						创造一个虚拟机环境，使同一个项目可以方便的在多台计算机上进行开发。</p>
 						<pre class="prettyprint">$ sudo pip install virtualenv</pre>
 						<p>之后，我们需要配置SSH以及FTP，执行以下命令。</p>
-						<pre class="prettyprint"><p>$ sudo apt-get -y install openssh-server<br/>
-						$ sudo apt-get -y install vsftpd</p></pre>
+						<pre class="prettyprint">$ sudo apt-get -y install openssh-server<br/>$ sudo apt-get -y install vsftpd</pre>
 						<p>配置完SSH服务器之后，我们可以使用putty这个软件远程连接到虚拟机，在win系统中用命令行的形式对
 						虚拟机进行操作。配置完FTP服务器后，我们可以使用notepad++软件在win系统中对虚拟机中文件进行编辑。
 						这两款软件的下载及配置方法在此不再详述，网上有很多帖子可供读者参考。</p>
-						<h3 id="pybasis"> Benefits</h3>
-						<ul>
-						<li>Use Opineo to conduct pre-release surveys before launching new products or services</li>
-						<li>Analyze new trends in the industry</li>
-						<li>Run crowd-sourced campaigns with Opineo to mature new ideas, website designs or
-						logos</li>
-						<li>Conduct popularity surveys with free Opineo widget</li>
-						<li>Create and host polling surveys with Opineo</li>
-						</ul>
-						<h3 id="github"> Features</h3>
-						<ul>
-						<li>Facility to customize to match your website theme</li>
-						<li>Detailed and Compact view options</li>
-						<li>Comprehensive options to customize animation, colors, orientation and style</li>
-						<li>All the power and flexibility of jQuery</li>
-						<li>Easy install; 100% integration</li>
-						<li>Facility to customize rating icons</li>
-						</ul>
+						<h3 id="pybasis"> python语言基础</h3>
+						<p>这部分内容请读者移步本站<a href='python.html'>python语言基础学习笔记</a></p>
+						<h3 id="github"> git和github基础</h3>
+						<p>git是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。它是
+						Linus Torvalds为了帮助管理Linux内核开发而开发的一个开放源码的版本控制软件。gitHub是一个面向开
+						源及私有软件项目的托管平台，因为只支持git作为唯一的版本库格式进行托管，故名gitHub。</p>
+						<p>综上，学会git和github的使用对于开发者而言意义重大。本节首先介绍几个常用功能，然后在结尾向
+						读者推荐网络上非常流行的一个github教程。</p>
+						<p>第一步，前往github注册一个账号，不再赘述。</p>
+						<p>第二步，在github上新建一个仓库（repository），同时新建说明文档ReadMe.MD。</p>
+						<p>第三步，在本地项目文件夹中进行git的初始化，注意路径已经要设置正确，执行如下指令。</p>
+						<pre class="prettyprint"># git init</pre>
+						<p>第四步，配置用户信息，用户名和邮箱可以自行确定，执行如下指令。</p>
+						<pre class="prettyprint"># git config --global user.name 'xx'<br/># git config --global user.email 'xx@xx'</pre>
+						<p>第五步，配置远程仓库地址，指定为第二步新建的仓库地址，执行如下指令。</p>
+						<pre class="prettyprint"># git remote add origin 'xxxxxxxxxxxxxxxxxxgithub.com'</pre>
+						<p>第六步，更改代码后，查看更改信息，执行如下指令。</p>
+						<pre class="prettyprint"># git status</pre>
+						<p>第七步，将更改信息加入git，执行如下指令。</p>
+						<pre class="prettyprint"># git add .</pre>
+						<p>第八步，提交本次更改，并添加备注信息，执行如下指令。</p>
+						<pre class="prettyprint"># git commit -m 'xxxxx'</pre>
+						<p>第九步，将本次更改推送到远程仓库，执行如下指令。</p>
+						<pre class="prettyprint"># git pull origin master<br/># git push origin master</pre>
+						<p>以上是网站开发过程中常用的git命令，下面推荐一个来自网络的git教程。链接如下，提取码为fxvq。</p>
+						<a>https://pan.baidu.com/s/1z3qKr6FOFWQXd3mW-w7ZVA<a/>
 						<h3 id="newprj"> License</h3>
 						<p> This Feedback Collection and Polling widget is free for personal and commercial
 						projects as long as you are providing a link back to this page. If you don’t want
