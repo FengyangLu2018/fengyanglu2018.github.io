@@ -28,24 +28,26 @@
 						<li><strong>开发第一步</strong></li>
 						<li><a href="#envbuild" class="cc-active">开发环境搭建</a></li>
 						<li><a href="#pybasis" class="cc-active">python语言基础</a></li>
-						<li><a href="#github" class="cc-active">git和github基础</a></li>    
 						<li><a href="#newprj" class="cc-active">新建一个工程</a></li>
-						<li><a href="#summary1" class="cc-active">小结：建站的流程</a></li>
+						<li><a href="#github" class="cc-active">git和github基础</a></li>    
+						<li><a href="#summary1" class="cc-active">小结：开发环境配置的流程</a></li>
 						<li class="separator"></li>
 						<li><strong>博客网站实例</strong></li>
-						<li><a href="#view_type" class="cc-active">新建一个app</a></li>
-						<li><a href="#animation_style" class="cc-active">数据管理与数据库</a></li>
-						<li><a href="#bars_text" class="cc-active">用户验证登录功能</a></li>
-						<li><a href="#vote_counter" class="cc-active">发送邮件功能</a></li>
-						<li><a href="#rating_icons" class="cc-active">Rating Icons</a></li>
-						<li><a href="#rating_titles" class="cc-active">Rating Titles</a></li>
-						<li><a href="#bar_colors" class="cc-active">Bar Colors</a></li>
+						<li><a href="#newapp" class="cc-active">新建一个app</a></li>
+						<li><a href="#database" class="cc-active">数据管理与数据库</a></li>
+						<li><a href="#login" class="cc-active">用户登录</a></li>
+						<li><a href="#email" class="cc-active">发送邮件</a></li>
+						<li><a href="#register" class="cc-active">用户注册</a></li>
 						<li class="separator"></li>
 						<li style='color:black;'><strong><a href='menupage.html' style='color:black;'>返回学习笔记首页</a></strong></li>
 					</ul>
 					<div class="docs-content">
+					
 						<h2 style='font-size:250%;'><strong>开发第一步</strong></h2>
+						<p>第一部分介绍的内容是从零开始如何一步一步把django的开发环境搭建起来，以便后续在此基础上进行
+						各种项目的开发。</p>
 						<br/>
+						
 						<h3 id="envbuild">开发环境搭建</h3>
 						<p> 工欲善其事必先利其器，因此第一步需要搭建开发环境。</p>
 						<p> 因为网站的主流架构是LAMP，即Linux+Apache+Mysql+PHP/Python/Perl，因此我们第一步需要在自己的
@@ -56,214 +58,81 @@
 						<pre class="prettyprint">$ sudo apt-get update<br/>$ sudo apt-get -y upgrade</pre>
 						<p>然后我们继续用apt-get来安装pip，pip是python语言中重要的套件管理工具。</p>
 						<pre class="prettyprint">$ sudo apt-get -y install python-pip</pre>  
-						<p>之后我们就可以用pip来安装套件，首先来安装虚拟机环境virtualenv这个套件，它的作用是给你的工程
-						创造一个虚拟机环境，使同一个项目可以方便的在多台计算机上进行开发。</p>
+						<p>之后我们就可以用pip来安装套件，首先来安装虚拟机环境virtualenv这个套件。虚拟环境的作用是创建
+						一个独立的python环境，将每一个应用的环境独立开来，解决了不同应用及多版本之间的冲突问题。在开发
+						的日常中，我们会将python及配套的应用全部安装在电脑上，所创建的应用都是使用这一套环境，这就很容
+						易出现不同应用之间环境冲突，也会出现各种配置因版本的差异而不兼容，virtualenv将每一个应用的环境
+						独立开来，并提供一套创建、复制、切换等管理虚拟环境的工具，使得环境配置变的简单。它的安装方法如
+						下。</p>
 						<pre class="prettyprint">$ sudo pip install virtualenv</pre>
 						<p>之后，我们需要配置SSH以及FTP，执行以下命令。</p>
 						<pre class="prettyprint">$ sudo apt-get -y install openssh-server<br/>$ sudo apt-get -y install vsftpd</pre>
+						<p>之后，我们查看虚拟机ip地址已实现本机win系统与虚拟机的连接，执行如下指令。</p>
+						<pre class="prettyprint"># ip a </pre>
 						<p>配置完SSH服务器之后，我们可以使用putty这个软件远程连接到虚拟机，在win系统中用命令行的形式对
 						虚拟机进行操作。配置完FTP服务器后，我们可以使用notepad++软件在win系统中对虚拟机中文件进行编辑。
 						这两款软件的下载及配置方法在此不再详述，网上有很多帖子可供读者参考。</p>
+						
 						<h3 id="pybasis"> python语言基础</h3>
 						<p>这部分内容请读者移步本站<a href='python.html'>python语言基础学习笔记</a></p>
+						
+						<h3 id="newprj"> 新建一个工程</h3>
+						<p>首先，切换到普通账户，新建一个文件夹作为项目工作区，并进入这个工作区，执行如下指令。</p>
+						<pre class="prettyprint"># mkdir xxx-prj<br># cd xxx-prj</pre>
+						<p>然后，新建一个虚拟环境并激活它，执行如下指令。</p>
+						<pre class="prettyprint"># virtualenv xxx-venv<br># source xxx-venv/bin/activate</pre>
+						<p>第三，在虚拟环境中安装django，执行如下指令。</p>
+						<pre class="prettyprint"># pip install django</pre>
+						<p>第四，记录虚拟环境中安装的套件，执行如下指令。之后每次安装新的套件都要执行这条指令。</p>
+						<pre class="prettyprint"># pip freeze > requirements.txt</pre>
+						<p>第五，新建django项目，执行如下指令。</p>
+						<pre class="prettyprint"># django-admin startproject xxx </pre>
+						<p>至此，我们完成了新建django项目的工作。</p>
+						
 						<h3 id="github"> git和github基础</h3>
 						<p>git是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。它是
 						Linus Torvalds为了帮助管理Linux内核开发而开发的一个开放源码的版本控制软件。gitHub是一个面向开
 						源及私有软件项目的托管平台，因为只支持git作为唯一的版本库格式进行托管，故名gitHub。</p>
 						<p>综上，学会git和github的使用对于开发者而言意义重大。本节首先介绍几个常用功能，然后在结尾向
 						读者推荐网络上非常流行的一个github教程。</p>
-						<p>第一步，前往github注册一个账号，不再赘述。</p>
-						<p>第二步，在github上新建一个仓库（repository），同时新建说明文档ReadMe.MD。</p>
-						<p>第三步，在本地项目文件夹中进行git的初始化，注意路径已经要设置正确，执行如下指令。</p>
+						<p>首先，前往github注册一个账号，不再赘述。</p>
+						<p>然后，在github上新建一个仓库（repository），同时新建说明文档ReadMe.MD。</p>
+						<p>第三，在本地项目文件夹中进行git的初始化，注意路径已经要设置正确，执行如下指令。</p>
 						<pre class="prettyprint"># git init</pre>
-						<p>第四步，配置用户信息，用户名和邮箱可以自行确定，执行如下指令。</p>
+						<p>第四，配置用户信息，用户名和邮箱可以自行确定，执行如下指令。</p>
 						<pre class="prettyprint"># git config --global user.name 'xx'<br/># git config --global user.email 'xx@xx'</pre>
-						<p>第五步，配置远程仓库地址，指定为第二步新建的仓库地址，执行如下指令。</p>
+						<p>第五，配置远程仓库地址，指定为第二步新建的仓库地址，执行如下指令。</p>
 						<pre class="prettyprint"># git remote add origin 'xxxxxxxxxxxxxxxxxxgithub.com'</pre>
-						<p>第六步，更改代码后，查看更改信息，执行如下指令。</p>
+						<p>第六，更改代码后，查看更改信息，执行如下指令。</p>
 						<pre class="prettyprint"># git status</pre>
-						<p>第七步，将更改信息加入git，执行如下指令。</p>
+						<p>第七，将更改信息加入git，执行如下指令。</p>
 						<pre class="prettyprint"># git add .</pre>
-						<p>第八步，提交本次更改，并添加备注信息，执行如下指令。</p>
+						<p>第八，提交本次更改，并添加备注信息，执行如下指令。</p>
 						<pre class="prettyprint"># git commit -m 'xxxxx'</pre>
-						<p>第九步，将本次更改推送到远程仓库，执行如下指令。</p>
+						<p>第九，将本次更改推送到远程仓库，执行如下指令。</p>
 						<pre class="prettyprint"># git pull origin master<br/># git push origin master</pre>
 						<p>以上是网站开发过程中常用的git命令，下面推荐一个来自网络的git教程。链接如下，提取码为fxvq。</p>
-						<a>https://pan.baidu.com/s/1z3qKr6FOFWQXd3mW-w7ZVA</a>
-						<h3 id="newprj"> License</h3>
-						<p> This Feedback Collection and Polling widget is free for personal and commercial
-						projects as long as you are providing a link back to this page. If you don’t want
-						to provide a link back, simply contribute to the development and improvement of
-						this tool. To contribute to this and many other interesting projects, go to Support
-						Efforts and become a patron.</p>
+						<a>https://pan.baidu.com/s/1z3qKr6FOFWQXd3mW-w7ZVA<a/>
+						
+						<h3 id="summary1">小结：开发环境配置的流程</h3>
+						<p>这一章介绍了从零开始如何搭建起django的开发环境，首先我们需要运行着linux的虚拟机；然后我们
+						需要在虚拟机中配置项目开发的虚拟环境，并在虚拟环境中安装开发需要的各种套件；之后新建django项
+						目；最后，完成git及github的配置，对项目进行有效的管理。</p>
+						
 						<hr>
-						<h2> Customizing Opineo</h2>
-						<p> Before you make any cusomization or even start using Opineo create a 'div' element
-						and assign it some id. Now add references to necessary Javascrip files e.g.</p>
-						<ul>
-						<li>A reference to latest jQuery library </li>
-						<li>A reference to Opineo script file sudo nano opineo.js</li>
-						</ul>
-						<p> The following customization options are available in Opineo:</p>
-						<h3 id="view_type"> View Type</h3>
-						<ul>
-						<li>Detailed View</li>
-						</ul>
-
-						<pre class="prettyprint">&lt;script&gt;
-						$(document).ready(function (){
-						$('#DefaultOptions').opineo('results.php', {curvalue:3,
-						view: 'detailed',
-						animation_speed: 'super',
-						show_total_votes_counter: false,
-						show_overall_rating: true});
-						})
-						&lt;/script&gt;</pre>
-						<ul>
-						<li>Compact View</li>
-						</ul>
-						<pre class="prettyprint">&lt;script&gt;
-						$(document).ready(function (){
-						$('#CompactView').opineo('results.php',
-						{curvalue:3, view: 'compact',
-						animation_speed: 'super'});
-						})
-						&lt;/script&gt;</pre>
-						<ul>
-						<li>Mini View</li>
-						</ul>
-						<pre class="prettyprint">&lt;script&gt;
-						$(document).ready(function (){
-						$('#MiniView').opineo('results.php', {curvalue:0, view: 'mini', callback: myCallback});
-						})	
-						&lt;/script&gt;</pre>
-						<h3 id="animation_style"> Animation Style</h3>
-						<ul>
-						<li>Slow</li>
-						</ul>
-						<pre class="prettyprint">&lt;script&gt;
-						$(document).ready(function (){
-						$('#opineo').opineo('results.php', {curvalue:0, view: 'mini', animation_speed:'slow'});
-						})	
-						&lt;/script&gt; </pre>
-						<ul>
-						<li>Medium</li>
-						</ul>
-						<pre class="prettyprint">&lt;script&gt;
-						$(document).ready(function (){
-						$('#opineo').opineo('results.php', {curvalue:0, view: 'mini', animation_speed:'mild'});
-						})	
-						&lt;/script&gt; </pre>
-						<ul>
-						<li>Fast</li>
-						</ul>
-						<pre class="prettyprint">&lt;script&gt;
-						$(document).ready(function (){
-						$('#opineo').opineo('results.php', {curvalue:0, view: 'mini', animation_speed:'fast'});
-						})	
-						&lt;/script&gt;</pre>
-						<ul>
-						<li>Super Fast</li>
-						</ul>
-						<pre class="prettyprint">&lt;script&gt;
-						$(document).ready(function (){
-						$('#opineo').opineo('results.php', {curvalue:0, view: 'mini', animation_speed:'super'});
-						})	
-						&lt;/script&gt;</pre>
-						<ul>
-						<li>Ultra Fast</li>
-						</ul>
-						<pre class="prettyprint"> &lt;script&gt;
-						$(document).ready(function (){
-						$('#opineo').opineo('results.php', {curvalue:0, view: 'mini', animation_speed:'ultra fast'});
-						})	
-						&lt;/script&gt; </pre>
-						<h3 id="bars_text"> Bars Text</h3>
-						<ul>
-						<li>Show</li>
-						</ul>
-						<pre class="prettyprint">&lt;script&gt;
-						$(document).ready(function (){
-						$('#opineo').opineo('results.php', {curvalue:0, view: 'mini', votes_label:true});
-						})	
-						&lt;/script&gt;</pre>
-						<ul>
-						<li>Hide</li>
-						</ul>
-						<pre class="prettyprint">&lt;script&gt;
-						$(document).ready(function (){
-						$('#opineo').opineo('results.php', {curvalue:0, view: 'mini', votes_label:false});
-						})	
-						&lt;/script&gt;</pre>
-						<h3 id="vote_counter"> Vote Counter</h3>
-						<ul>
-						<li>Show</li>
-						</ul>
-						<pre class="prettyprint">&lt;script&gt;
-						$(document).ready(function (){
-						$('#opineo').opineo('results.php', {curvalue:0, view: 'mini', show_votes_counter:true});
-						})	
-						&lt;/script&gt; </pre>
-						<ul>
-						<li>Hide</li>
-						</ul>
-						<pre class="prettyprint">&lt;script&gt;
-						$(document).ready(function (){
-						$('#opineo').opineo('results.php', {curvalue:0, view: 'mini', votes_label:false});
-						})	
-						&lt;/script&gt;</pre>
-						<h3 id="rating_icons"> Rating Icons</h3>
-						<ul>
-						<li>Colored</li>
-						<li>Grey</li>
-						</ul>
-						<h3 id="rating_titles"> Rating Titles</h3>
-						<ul>
-						<li>Text For First Star</li>
-						</ul>
-						<pre class="prettyprint">&lt;script&gt;
-						$(document).ready(function (){
-						$('#opineo').opineo('results.php', {curvalue:0, view: 'mini', star_1_text:'Hate It'});
-						})	
-						&lt;/script&gt;</pre>
-						<ul>
-						<li>Text For Second Star</li>
-						</ul>
-						<pre class="prettyprint">&lt;script&gt;
-						$(document).ready(function (){
-						$('#opineo').opineo('results.php', {curvalue:0, view: 'mini', star_2_text:'Don't Like It'});
-						})	
-						&lt;/script&gt; </pre>
-						<ul>
-						<li>Text For Third Star</li>
-						</ul>
-						<pre class="prettyprint">&lt;script&gt;
-						$(document).ready(function (){
-						$('#opineo').opineo('results.php', {curvalue:0, view: 'mini', star_1_text:'Its OK'});
-						})	
-						&lt;/script&gt;</pre>
-						<ul>
-						<li>Text For Fourth Star</li>
-						</ul>
-						<pre class="prettyprint">&lt;script&gt;
-						$(document).ready(function (){
-						$('#opineo').opineo('results.php', {curvalue:0, view: 'mini', star_1_text:'Like It'});
-						})	
-						&lt;/script&gt;</pre>
-						<ul>
-						<li>Text For Fifth Star</li>
-						</ul>
-						<pre class="prettyprint">&lt;script&gt;
-						$(document).ready(function (){
-						$('#opineo').opineo('results.php', {curvalue:0, view: 'mini', star_1_text:'Love It'});
-						})	
-						&lt;/script&gt;</pre>
-						<h3 id="bar_colors"> Bar Colors</h3>
-						<ul>
-						<li>Colors of Red Bar</li>
-						<li>Colors of Yellow Bar</li>
-						<li>Colors of Green Bar</li>
-						</ul>
+						<h2>博客网站实例</h2>
+						<p> 这一部分我们通过一个实例——博客网站来学习django建站的流程，完成这一章节的学习应该可以完成
+						一些基本网站的搭建了。</p>
+						
+						<h3 id="newapp">新建一个app</h3>
+						
+						<h3 id="database">数据管理与数据库</h3>
+						
+						<h3 id="login">用户登录</h3>
+						
+						<h3 id="email">发送邮件</h3>
+						
+						<h3 id="register">用户注册</h3>
 					</div>
 				</div>
 			</section>
