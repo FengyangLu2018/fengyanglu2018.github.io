@@ -147,7 +147,7 @@
 						内容如下，引入models作为创建数据类的基类。</p>
 						<pre class="prettyprint">from django.db import models</pre>
 						<p>通常写法如下：</p>
-						<pre>class Post(models.Model):<br>	mood = models.ForeignKey('Mood', on_delete=models.CASCADE)<br>	nickname = models.CharField(max_length=10, default='不愿意透露身份的人')<br>	message = models.TextField(null=False)<br>	del_pass = models.CharField(max_length=10)<br>	pub_time = models.DateTimeField(auto_now=True)<br>	enabled = models.BooleanField(default=False)<br>	def __unicode__(self):<br>		return self.message</pre>
+						<pre class="prettyprint">class Post(models.Model):<br>	mood = models.ForeignKey('Mood', on_delete=models.CASCADE)<br>	nickname = models.CharField(max_length=10, default='不愿意透露身份的人')<br>	message = models.TextField(null=False)<br>	del_pass = models.CharField(max_length=10)<br>	pub_time = models.DateTimeField(auto_now=True)<br>	enabled = models.BooleanField(default=False)<br>	def __unicode__(self):<br>		return self.message</pre>
 						<p>django项目默认的数据库配置为sqlite，目前业界用的更多的是mysql。本节将分别介绍这两种数据库的
 						配置方法。</p>
 						
