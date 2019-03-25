@@ -87,6 +87,12 @@
 						<pre class="prettyprint"># pip freeze > requirements.txt</pre>
 						<p>第五，新建django项目，执行如下指令。</p>
 						<pre class="prettyprint"># django-admin startproject xxx </pre>
+						<p>执行完这条指令后，在项目工作区xxx-prj中会出现一个子文件夹xxx，我们将其称为项目文件夹。
+						此时xxx-prj中会有两个子文件夹，分别为xxx和xxx-venv。然后我们进入项目文件夹xxx，并新建两
+						个子文件夹templates和static。</p>
+						<p>最后，我们对项目进行一些基本配置，包括设定服务器、模板路径、静态文件路径、语言格式以及时区
+						设置。打开xxx-prj/xxx/xxx/settings.py文件，完成如下修改。</p>
+						<pre class="prettyprint">ALLOWED_HOSTS = ['*']<br>'DIRS': [os.path.join(BASE_DIR,'templates')],<br>STATICFILES_DIRS=[os.path.join(BASE_DIR,'static'),]<br>LANGUAGE_CODE='zh-hans'<br>TIME_ZONE='Asia/Shanghai'</pre>
 						<p>至此，我们完成了新建django项目的工作。</p>
 						
 						<h3 id="github"> git和github基础</h3>
@@ -97,19 +103,21 @@
 						读者推荐网络上非常流行的一个github教程。</p>
 						<p>首先，前往github注册一个账号，不再赘述。</p>
 						<p>然后，在github上新建一个仓库（repository），同时新建说明文档ReadMe.MD。</p>
-						<p>第三，在本地项目文件夹中进行git的初始化，注意路径已经要设置正确，执行如下指令。</p>
+						<p>第三，完成上一节新建django工程后，从本地项目工作区进入项目文件夹，执行以下指令。</p>
+						<pre class="prettyprint"># cd xxx</pre>
+						<p>第四，在本地项目文件夹中进行git的初始化，执行如下指令。</p>
 						<pre class="prettyprint"># git init</pre>
-						<p>第四，配置用户信息，用户名和邮箱可以自行确定，执行如下指令。</p>
+						<p>第五，配置用户信息，用户名和邮箱可以自行确定，执行如下指令。</p>
 						<pre class="prettyprint"># git config --global user.name 'xx'<br/># git config --global user.email 'xx@xx'</pre>
-						<p>第五，配置远程仓库地址，指定为第二步新建的仓库地址，执行如下指令。</p>
+						<p>第六，配置远程仓库地址，指定为第二步新建的仓库地址，执行如下指令。</p>
 						<pre class="prettyprint"># git remote add origin 'xxxxxxxxxxxxxxxxxxgithub.com'</pre>
-						<p>第六，更改代码后，查看更改信息，执行如下指令。</p>
+						<p>第七，更改代码后，查看更改信息，执行如下指令。</p>
 						<pre class="prettyprint"># git status</pre>
-						<p>第七，将更改信息加入git，执行如下指令。</p>
+						<p>第八，将更改信息加入git，执行如下指令。</p>
 						<pre class="prettyprint"># git add .</pre>
-						<p>第八，提交本次更改，并添加备注信息，执行如下指令。</p>
+						<p>第九，提交本次更改，并添加备注信息，执行如下指令。</p>
 						<pre class="prettyprint"># git commit -m 'xxxxx'</pre>
-						<p>第九，将本次更改推送到远程仓库，执行如下指令。</p>
+						<p>第十，将本次更改推送到远程仓库，执行如下指令。</p>
 						<pre class="prettyprint"># git pull origin master<br/># git push origin master</pre>
 						<p>以上是网站开发过程中常用的git命令，下面推荐一个来自网络的git教程。链接如下，提取码为fxvq。</p>
 						<a>https://pan.baidu.com/s/1z3qKr6FOFWQXd3mW-w7ZVA</a>
@@ -122,11 +130,26 @@
 						<hr>
 						<h2 style='font-size:250%;'><strong>博客网站实例</strong></h2>
 						<p> 这一部分我们通过一个实例——博客网站来学习django建站的流程，完成这一章节的学习应该可以完成
-						一些基本网站的搭建了。</p>
+						一些基本网站的搭建了。这个章节基于前一章节的内容，读者需新建一个工程，相关文件名为blog-prj，
+						blog-venv，blog。</p>
 						
 						<h3 id="newapp">新建一个app</h3>
+						<p>首先，在项目文件夹中，执行如下指令。</p>
+						<pre class="prettyprint"># python manage.py startapp mainsite</pre>
+						<p>然后，我们在settings.py中将这个新建的app加入app列表，对settings.py文件对应部分修改如下。</p>
+						<pre class="prettyprint">INSTALLED_APPS=[...,....,'mainsite',]</pre>
+						<p>此时，在项目文件中会出现mainsite子文件夹，它和上一节创建的templates和static是同级文件夹。</p>
 						
-						<h3 id="database">数据管理与数据库</h3>
+						<h3 id="database">数据管理与数据库配置</h3>
+						<p>django程序中不直接面对数据库和数据表，而是通过Model的方式进行操作，这样做的好处是更换数据库
+						系统时可以不更改程序。</p>
+						<p>django中数据以类的形式定义在model.py中，通常一个类对应数据库中一个数据表。models.py第一行
+						内容如下，引入models作为创建数据类的基类。</p>
+						<pre class="prettyprint">from django.db import models</pre>
+						<p>通常写法如下：</p>
+						<pre>class Post(models.Model):<br>	mood = models.ForeignKey('Mood', on_delete=models.CASCADE)<br>	nickname = models.CharField(max_length=10, default='不愿意透露身份的人')<br>	message = models.TextField(null=False)<br>	del_pass = models.CharField(max_length=10)<br>	pub_time = models.DateTimeField(auto_now=True)<br>	enabled = models.BooleanField(default=False)<br>	def __unicode__(self):<br>		return self.message</pre>
+						<p>django项目默认的数据库配置为sqlite，目前业界用的更多的是mysql。本节将分别介绍这两种数据库的
+						配置方法。</p>
 						
 						<h3 id="login">用户登录</h3>
 						
